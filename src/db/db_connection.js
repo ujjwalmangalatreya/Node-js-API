@@ -10,6 +10,7 @@ const dbConnect = async ()=>{
         await sequelize.authenticate();
         console.log("Connection has been established successfully");
         await sequelize.sync();
+        console.log("Database synced successfully");
     }catch (err){
         console.log("Unable to connect to the database",err);
     }
