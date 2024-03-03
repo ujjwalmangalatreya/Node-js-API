@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.post('/v1/api/register', userController.add);
+router.post('/v1/api/register', userController.registerUser);
+router.post('/v1/api/login', userController.loginUser);
 
 module.exports = {router}
 

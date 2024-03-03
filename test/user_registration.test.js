@@ -5,6 +5,11 @@ const { checkUserNameEmpty,
   checkPasswordEmpty,
   checkPasswordValidations } = require("../src/services/user.service.js");
 
+const { registerUser } = require("../src/controllers/user.controller.js")
+const request = require("supertest");
+const { app } = require("../src/app.js");
+
+
 describe('::TEST USER SERVICES:::', () => {
   test('Check if username is empty', async () => {
     const password = checkUserNameEmpty("");
@@ -22,6 +27,9 @@ describe('::TEST USER SERVICES:::', () => {
     const password = checkPasswordEmpty("");
     expect(password).toBe(false);
   });
+  test("jsadhjashd", () => {
+    expect(1).toBe(0);
+  })
   
 });
 
@@ -51,3 +59,6 @@ describe("::TEST USER BUSINESS LOGIC::", () => {
     expect(username).toBe(true);
   });
 })
+
+
+
