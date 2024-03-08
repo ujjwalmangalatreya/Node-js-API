@@ -27,9 +27,6 @@ describe('::TEST USER SERVICES:::', () => {
     const password = checkPasswordEmpty("");
     expect(password).toBe(false);
   });
-  test("jsadhjashd", () => {
-    expect(1).toBe(0);
-  })
   
 });
 

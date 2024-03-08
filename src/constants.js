@@ -1,5 +1,5 @@
 const constants = {
-    DB_NAME: "postgres",
+    DB_NAME: "musical",
     PORT: "5432",
 }
 
