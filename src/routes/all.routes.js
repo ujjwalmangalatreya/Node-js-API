@@ -13,6 +13,7 @@ router.post("/v1/api/register", userController.registerUser);
 router.post("/v1/api/login", userController.loginUser);
 router.post("/v1/api/logout", userController.logOut);
 
+/** Profile Routes */
 router.get("/v1/api/profile", profileController.profileLists);
 
 
