@@ -11,6 +11,8 @@ const authClientToken = async (req, res,next) => {
           return res.status(401).send(new ApiError(401, "Auth Token Not provided"))
           
      }
+
+     
      next();
      
 }

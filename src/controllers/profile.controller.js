@@ -8,10 +8,6 @@ const Profile = require("../models/profile.models")(sequelize);
 module.exports = {
      profileLists: async (req, res) => {
           try {
-               const header = req.header['authorization']
-               if (!header) {
-                    return res.status(401).send(new ApiError(401,"Token no provided"))
-               }
                const profiles = await Profile.findAll();
                if (profiles.length === 0) {
                     return res.status(204).send(new ApiResponse(204, profiles, "No Profile Found"));
