@@ -15,7 +15,7 @@ router.post("/v1/api/login", userController.loginUser);
 router.post("/v1/api/logout", userController.logOut);
 
 /** Profile Routes */
-router.get("/v1/api/profiles", authClientRequest.authClientToken, profileController.profileLists);
+router.get("/v1/api/profile/all", authClientRequest.authClientToken, profileController.profileLists);
 router.get("/v1/api/profile", authClientRequest.authClientToken, profileController.profileByUserId);
 
 
