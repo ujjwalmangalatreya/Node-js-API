@@ -18,9 +18,15 @@ module.exports = {
                return res.status(500).json({ error: 'Internal Server Error' });
           }
      },
-     profileByUserName: async (req, res) => {
+     profileByUserId: async (req, res) => {
+          const { userId } = req.body;
           try {
-               
+               const profile = await Profile.findOne({ where: { userId: userId } });
+               console.log(profile);
+               if (!profile) {
+                    return res.status(404).send(new ApiError(404, "Profile Not Found"));
+               }
+               return res.status(200).send(new ApiResponse(200, profile, "Success"));
           }catch(error){
                console.log(error);
                return res.status(500).json({ error: 'Internal Server Error' });
