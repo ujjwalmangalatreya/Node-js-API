@@ -3,18 +3,18 @@ const express = require("express")
 const jwt = require("jsonwebtoken")
 const { ApiError } = require("../utils/ApiError")
 
-const authClientToken = async (req, res,next) => {
+const authClientToken = async (req, res, next) => {
      let token = req.headers['authorization']
-     console.log(token,"::::::::::::::::::::::")
-
      if (!token) {
           return res.status(401).send(new ApiError(401, "Auth Token Not provided"))
-          
      }
-
-     
-     next();
-     
+     try {
+          const decoded = jwt.verify(token, "nodeauthsecret")
+          req.user = decoded
+          next();
+     } catch (err) {
+          return res.status(401).send(new ApiError(401, "Auth Token Invalid"))
+     }
 }
 
 module.exports = { authClientToken }
