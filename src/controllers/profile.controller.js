@@ -1,6 +1,7 @@
 const { Sequelize } = require("sequelize");
 const { sequelize } = require("../db/db_connection.js");
 const { ApiResponse } = require("../utils/ApiResponse.js");
+const {ApiError} = require("../utils/ApiError.js")
 const Profile = require("../models/profile.models")(sequelize);
 
 
@@ -13,6 +14,14 @@ module.exports = {
                }
                return res.status(200).send(new ApiResponse(200,profiles,"Success"));
           } catch (error) {
+               console.log(error);
+               return res.status(500).json({ error: 'Internal Server Error' });
+          }
+     },
+     profileByUserName: async (req, res) => {
+          try {
+               
+          }catch(error){
                console.log(error);
                return res.status(500).json({ error: 'Internal Server Error' });
           }

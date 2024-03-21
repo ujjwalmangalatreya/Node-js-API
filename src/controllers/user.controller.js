@@ -5,7 +5,7 @@ const {
   checkPasswordEmpty,
   checkPasswordValidations,
   checkUserNameValidation,
-} = require("../services/user.service.js");
+} = require("../businesslogic/user.logic.js");
 const { ApiResponse } = require("../utils/ApiResponse.js");
 const { ApiError } = require("../utils/ApiError.js");
 
