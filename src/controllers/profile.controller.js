@@ -28,7 +28,6 @@ module.exports = {
                }
                return res.status(200).send(new ApiResponse(200, [profile], "Success"));
           } catch (error) {
-               console.log(error);
                return res.status(500).json({ error: 'Internal Server Error' });
           }
      },
@@ -37,18 +36,11 @@ module.exports = {
           console.log(req.body);
           try {
                const bandsArray = Array.isArray(band) ? band : [band];
-               const profile = await Profile.update({ profileImage, bio, genre, band: bandsArray },
-
-                    {
-                         where: { userId }
-                    });
-               console.log(profile, "::::::::::::::::::::::::::");
-               return res.status(200).send(new ApiResponse(200,"","Profile is Updated Sucessfullly"));
+               const profile = await Profile.update({ profileImage, bio, genre, band: bandsArray }, { where: { userId } });
+               return res.status(200).send(new ApiResponse(200, "", "Profile is Updated Sucessfullly"));
           } catch (error) {
                return res.status(500).send(new ApiError(500, "Internal Server Error", "" + error.toString()),
                );
           }
-
-
      }
 }
