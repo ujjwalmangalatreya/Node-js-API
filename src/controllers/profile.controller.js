@@ -37,6 +37,7 @@ module.exports = {
           try {
                const bandsArray = Array.isArray(band) ? band : [band];
                const profile = await Profile.update({ profileImage, bio, genre, band: bandsArray }, { where: { userId } });
+               if(!profile) return res.status(404).send(new ApiError(404, "Profile Not Found"));
                return res.status(200).send(new ApiResponse(200, "", "Profile is Updated Sucessfullly"));
           } catch (error) {
                return res.status(500).send(new ApiError(500, "Internal Server Error", "" + error.toString()),
